@@ -1,6 +1,5 @@
 import React from "react";
 import Modal from "../UI/Modal";
-import CartContext from "../context/cart-context";
 
 const Order = () => {
   return (
@@ -17,7 +16,7 @@ const Order = () => {
 
           <a
             class="inline-block w-full py-4 mt-8 text-sm font-bold text-white bg-pink-600 rounded-full shadow-xl"
-            href="App"
+            href="/"
           >
             Track Order
           </a>

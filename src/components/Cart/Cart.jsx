@@ -60,7 +60,6 @@ const Cart = (props) => {
 
         <button
           onClick={props.onCloseCart}
-          type="button"
           className="px-4 py-2 ml-2 font-medium text-red-600 rounded bg-red-50"
         >
           Close
