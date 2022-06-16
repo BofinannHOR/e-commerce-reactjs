@@ -10,7 +10,7 @@ const Header = (props) => {
       <header className=" bg-white drop-shadow-xl">
         <nav className=" flex items-center justify-between max-w-3xl p-4 mx-auto">
           <a
-            className="inline-flex items-center justify-center w-40 h-10  rounded-lg font-extrabold text-blue-500 text-3xl sm:text-xl"
+            className="inline-flex items-center justify-center w-40 h-10  rounded-lg font-extrabold text-blue-500 sm:text-3xl text-xl"
             href="/"
           >
             Ma Tech
