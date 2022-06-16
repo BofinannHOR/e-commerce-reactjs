@@ -11,7 +11,7 @@ const Input = React.forwardRef((props, ref) => {
           ref={ref}
           //   type="email"
           {...props.input}
-          className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+          className="w-full md:p-2 p-4 pr-12 text-sm bg-gray-100 rounded-lg shadow-sm focus:border-blue-500 "
         />
       </div>
     </div>
