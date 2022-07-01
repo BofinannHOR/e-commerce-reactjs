@@ -5,12 +5,19 @@ import { useEffect, useState } from "react";
 
 const ProductInStock = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [httpError, setHttpError] = useState();
+
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
         "https://matech-firebase-default-rtdb.asia-southeast1.firebasedatabase.app/products.json"
       );
+      if (!res.ok) {
+        throw new Error("something went wrong when try to get data");
+      }
       const data = await res.json();
+      console.log(data);
       const fireBaseData = [];
       for (const key in data) {
         fireBaseData.push({
@@ -23,10 +30,31 @@ const ProductInStock = () => {
       }
 
       setProducts(fireBaseData);
+      setLoading(false);
     };
-
-    fetchData();
+    fetchData().catch((error) => {
+      setLoading(false);
+      setHttpError(error.message);
+    });
   }, []);
+
+  if (loading) {
+    return (
+      <section className="spinner-container">
+        <div className="loading-spinner"></div>
+      </section>
+    );
+  }
+  if (httpError) {
+    return (
+      <div
+        className="p-4 text-red-700 rounded border-red-900/10 bg-red-50"
+        role="alert"
+      >
+        <strong className="text-sm font-medium">{httpError} !</strong>
+      </div>
+    );
+  }
 
   const productList = products.map((product) => (
     <ProductItem

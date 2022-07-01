@@ -5,6 +5,7 @@ import Cart from "./components/Cart/Cart";
 import Header from "./components/Layout/Header";
 import Products from "./components/Products/Products";
 import Footer from "./components/Layout/Footer";
+import Checkout from "./components/Cart/Checkout";
 
 function App() {
   const [openCart, setOpenCart] = useState(false);
@@ -22,6 +23,7 @@ function App() {
       {openCart && <Cart onCloseCart={hideCartHandler} />}
       <Header onOpenCart={opencartHandler} />
       <main>
+        {/* <Checkout /> */}
         <Products />
       </main>
       <Footer />
