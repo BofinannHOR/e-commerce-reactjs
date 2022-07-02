@@ -8,11 +8,12 @@ const ProductInStock = () => {
   const [loading, setLoading] = useState(true);
   const [httpError, setHttpError] = useState();
 
+  const API_URL =
+    "https://matech-firebase-default-rtdb.asia-southeast1.firebasedatabase.app/products.json";
+
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(
-        "https://matech-firebase-default-rtdb.asia-southeast1.firebasedatabase.app/products.json"
-      );
+      const res = await fetch(API_URL);
       if (!res.ok) {
         throw new Error("something went wrong when try to get data");
       }
