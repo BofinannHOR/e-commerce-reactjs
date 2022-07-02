@@ -14,6 +14,9 @@ const Cart = (props) => {
   const totalAmount = `$${cartCtx.totalAmount}`;
   const AvaiableItem = cartCtx.items.length > 0;
 
+  const API_URL =
+    "https://matech-firebase-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json";
+
   const CartRemoveItemHandler = (id) => {
     cartCtx.removeItem(id);
   };
@@ -42,16 +45,13 @@ const Cart = (props) => {
   const amountItem = cartCtx.items.map((item) => item.amount);
   const submitOrderHandler = async (inputData) => {
     setIsSubmiting(true);
-    await fetch(
-      "https://matech-firebase-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          input: inputData,
-          orderedItems: cartCtx.items,
-        }),
-      }
-    );
+    await fetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify({
+        input: inputData,
+        orderedItems: cartCtx.items,
+      }),
+    });
     setIsSubmiting(false);
     setAlreadySubmitted(true);
     cartCtx.resetCart();
